@@ -38,9 +38,33 @@
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Portafolio</a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" id="seleccionable">
                   <li class="nav-item">
-                    <a class="nav-link" href="amentities.html">Amentities</a>
+                    <a class="nav-link" href="portafolio.html" data-id="1">Agencia</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="2">Akame</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="3">Business-casual</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="4">Coming-soon</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="5">Creative</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="6">Fin del juego</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="7">Freelancer</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="8">Grayscale</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portafolio.html" data-id="9">Stylish</a>
                   </li>
                 </ul>
 							</li>
@@ -88,5 +112,20 @@
   <script src="js/mail-script.js"></script>
   <script src="js/skrollr.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
+
+  <script>
+    $(function(){
+      Cookies.remove("seleccion");
+
+      $("#seleccionable").on("click", "a", function(e){
+        e.preventDefault();
+
+        Cookies.set("seleccion",$(this).data("id"));
+        location.href = "/portafolio.html"
+      })
+    })
+
+  </script>
 </body>
 </html>

@@ -39,8 +39,34 @@
                 <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                     aria-expanded="false">Portafolio</a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="amentities.html">Amentities</a>
+                  <ul class="dropdown-menu" id="seleccionable">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/agency/index.html" data-id="1">Agencia</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/akame/index.html" data-id="2">Akame</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/business-casual/index.html" data-id="3">Business-casual</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/coming-soon/index.html" data-id="4">Coming-soon</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/creative/index.html" data-id="5">Creative</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/EndGam/HTML/home.html" data-id="6">End Game</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/freelancer/index.html" data-id="7">Freelancer</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/grayscale/index.html" data-id="8">Grayscale</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/pages/stylish-portfolio/index.html" data-id="9">Stylish</a>
+                      </li>
                   </ul>
                 </li>
               </ul>
@@ -90,9 +116,51 @@
   <script src="js/skrollr.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/cookies.js"></script>
   <script>
     $(function(){
+      switch(Cookies.get("seleccion")){
 
+        case "1":
+          $("#contenedor iframe").attr("src","/pages/agency/index.html");
+          break;
+        case "2":
+          $("#contenedor iframe").attr("src", "/pages/akame/index.html");
+          break;
+        case "3":
+          $("#contenedor iframe").attr("src", "/pages/business-casual/index.html");
+          break;
+        case "4":
+          $("#contenedor iframe").attr("src", "/pages/coming-soon/index.html");
+          break;
+        case "5":
+          $("#contenedor iframe").attr("src", "/pages/creative/index.html");
+          break;
+        case "6":
+          $("#contenedor iframe").attr("src", "/pages/EndGam/HTML/home.html");
+          break;
+        case "7":
+          $("#contenedor iframe").attr("src", "/pages/freelancer/index.html");
+          break;
+        case "8":
+          $("#contenedor iframe").attr("src", "/pages/grayscale/index.html");
+          break;
+        case "9":
+          $("#contenedor iframe").attr("src", "/pages/stylish-portfolio/index.html");
+          break;
+        default:
+          $("#contenedor iframe").attr("src", "/pages/agency/index.html");
+          break;
+      }
+
+      $("#seleccionable").on("click","a", function(e){
+        e.preventDefault();
+
+        var url = $(this).attr("href");
+
+        $("#contenedor iframe").attr("src",url);
+
+      });
     });
 
   </script>
